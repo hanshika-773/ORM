@@ -1,13 +1,8 @@
 # Ex02 Django ORM Web Application
-## Date: 11.03.24
+## Date: 21.03.24
 
 ## AIM
 To develop a Django application to store and retrieve data from a Book database using Object Relational Mapping(ORM).
-
-## Entity Relationship Diagram
-![2](https://github.com/hanshika-773/ORM/assets/153576501/7712be19-e31b-4677-b429-192acb514f58)
-
-
 
 ## DESIGN STEPS
 
@@ -27,24 +22,26 @@ Execute Django admin and create details for 10 books
 ```
 admin.py
 from django.contrib import admin
-from .models import student,studentAdmin
-admin.site.register(student,studentAdmin)
+from .models import Employee,EmployeeAdmin
+admin.site.register(Employee,EmployeeAdmin)
 
 models.py
 from django.db import models
 from django.contrib import admin
-class student (models.Model):
-    name=models.CharField(max_length=20,help_text="student")
-    rollno=models.IntegerField()
-    refno=models.IntegerField()
+class Employee (models.Model):
+    eid=models.IntegerField(primary_key=True)
+    name=models.CharField(max_length=100)
+    salary=models.IntegerField()
     age=models.IntegerField()
     email=models.EmailField()
-class studentAdmin(admin.ModelAdmin):
-    list_display=('name','rollno','refno','age','email')
+ 
+class EmployeeAdmin(admin.ModelAdmin):
+    list_display=('eid','name','salary','age','email')
 ```
 ## OUTPUT
 
-![1](https://github.com/hanshika-773/ORM/assets/153576501/c0de65b4-93dd-4984-80ca-a77bc7c20798)
+![alt text](<Screenshot 2024-03-21 144926.png>)
+
 
 ## RESULT
 Thus the program for creating a database using ORM hass been executed successfully
